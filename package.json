@@ -24,6 +24,7 @@
     "@tensorflow/tfjs": "^0.13.5",
     "core-js": "^2.5.4",
     "rxjs": "6.3.3",
+    "uuidv4": "^6.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
