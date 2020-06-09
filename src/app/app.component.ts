@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
   }
 
   handleTrigoClientMessages = (message: any) => {
-    console.log("Message received: ", message);
     let messageObj = JSON.parse(message);
+    console.log("Message received: ", messageObj);
     if (messageObj.type == "personidentified") {
       let dataToSend: any = {
         id: uuidv4(),
