@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
         ackId: uuidv4(),
         time: new Date(),
         storeId: this.storeId,
+        type: "personpaired",
         data: {
           pairingId: messageObj.data.pairingId,
           areaId: messageObj.data.areaId,
