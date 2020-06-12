@@ -1,5 +1,64 @@
 <div style="text-align:center">
-  <h1>Tensorflow.js Real Time Object Detection</h1>
-  <video hidden id="vid" width="300" height="300"></video>
-  <canvas id="canvas"></canvas>
+  <body>
+    <div
+      style="background-color: #00539f;
+    height: 55px;
+    left: -20px;
+    top: -10px;
+    position: relative;
+    width: 150%;"
+    >
+      <div
+        style="
+        text-align:center;
+    font-family: arial;
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: medium;
+    left: 45%;
+    height: 50px;"
+      >
+        TESCO-TRIGO
+      </div>
+    </div>
+  </body>
+  <div>
+    <video hidden id="vid" width="300" height="300"></video>
+    <canvas id="canvas"></canvas>
+    <div style="padding:2%">
+      <button (click)="goToTill()">Go To Till</button>
+    </div>
+    <div *ngIf="till">
+      <div *ngFor="let item of itemsAdded">
+        <div>
+          <table style="padding-left: 35%">
+            <tr>
+              <td style="width: 5%">{{ item.data.item }}</td>
+              <td style="width: 5%">
+                <button (click)="scanItem(item)">scan</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- <div *ngFor="let item of itemsAdded">
+          <div>
+            <ul>
+              <li style="flex-direction: row; display: flex" >
+                <div>
+                    {{ item.data.item }}
+                </div>
+                <div>
+                    <button (click)="scanItem(item)">scan</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      <button (click)="payBill()">Pay</button>
+    </div>
+  </div>
 </div>

@@ -23,6 +23,14 @@ export class AppComponent implements OnInit {
   personId: number;
   storeId: number = 9763;
   sessionId: number;
+  itemsAdded: Array<any> = [];
+  till: boolean = false;
+  itemsScanned: any = [];
+  // columnDefs = [
+  //   { headerName: "Item", field: "item" },
+  //   { headerName: "", field: "scan" }
+  // ];
+  // rowData = [];
 
   constructor() {
     try {
@@ -58,8 +66,26 @@ export class AppComponent implements OnInit {
       };
       dataToSend = JSON.stringify(dataToSend);
       this.wsClient.send(dataToSend);
+      console.log(dataToSend);
     }
   };
+
+  goToTill() {
+    this.till = true;
+    console.log(this.itemsAdded);
+    // this.itemsAdded.forEach(item => {
+    //   this.rowData.push({ item: item.data.item });
+    // });
+  }
+  scanItem(item) {
+    this.itemsScanned.push(item);
+    console.log(item.data.item + " Scanned");
+  }
+
+  payBill() {
+    console.log("Items Scanned at Till,");
+    this.itemsScanned.forEach(item => console.log(item.data.item));
+  }
 
   sendMessage = message => {
     try {
@@ -103,9 +129,11 @@ export class AppComponent implements OnInit {
             item: message
           }
         };
+        this.itemsAdded.push(dataToSend);
         dataToSend = JSON.stringify(dataToSend);
         this.wsClient.send(dataToSend);
       }
+      console.log(dataToSend);
     } catch (error) {
       console.log("failed to send message ws server", error);
     }
