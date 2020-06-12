@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   shopping: boolean = false;
   personInFrames = [];
   personId: number;
-  storeId: number = 9763;
+  storeId: number = 2055;
   sessionId: number;
   itemsAdded: Array<any> = [];
   till: boolean = false;
