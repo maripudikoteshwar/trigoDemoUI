@@ -158,7 +158,7 @@ var AppComponent = /** @class */ (function () {
                 };
                 dataToSend = JSON.stringify(dataToSend);
                 _this.wsClient.send(dataToSend);
-                console.log(dataToSend);
+                console.log("Data sent: ", dataToSend);
             }
         };
         this.sendMessage = function (message) {
@@ -196,7 +196,7 @@ var AppComponent = /** @class */ (function () {
                     dataToSend = JSON.stringify(dataToSend);
                     _this.wsClient.send(dataToSend);
                 }
-                console.log(dataToSend);
+                console.log("Data sent: ", dataToSend);
             }
             catch (error) {
                 console.log("failed to send message ws server", error);
@@ -289,7 +289,7 @@ var AppComponent = /** @class */ (function () {
             });
         };
         try {
-            this.wsClient = new WebSocket("ws://localhost:5555");
+            this.wsClient = new WebSocket("ws://10.127.26.71:5555");
             this.wsClient.onmessage = function (message) {
                 _this.handleTrigoClientMessages(message.data);
             };

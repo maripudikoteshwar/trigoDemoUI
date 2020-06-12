@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 
   constructor() {
     try {
-      this.wsClient = new WebSocket("ws://localhost:5555");
+      this.wsClient = new WebSocket("ws://10.127.26.71:5555");
       this.wsClient.onmessage = (message: any) => {
         this.handleTrigoClientMessages(message.data);
       };
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
       };
       dataToSend = JSON.stringify(dataToSend);
       this.wsClient.send(dataToSend);
-      console.log(dataToSend);
+      console.log("Data sent: ", dataToSend);
     }
   };
 
@@ -133,7 +133,7 @@ export class AppComponent implements OnInit {
         dataToSend = JSON.stringify(dataToSend);
         this.wsClient.send(dataToSend);
       }
-      console.log(dataToSend);
+      console.log("Data sent: ", dataToSend);
     } catch (error) {
       console.log("failed to send message ws server", error);
     }
